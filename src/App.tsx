@@ -5,9 +5,9 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { getData } from './api/api';
 import './App.scss';
 import { Header } from './components/Header';
-import { Exchange } from './components/Main/Exchange';
-import { ExchangeRate } from './components/Main/ExchangeRate';
-import { Home } from './components/Main/Home';
+import { Exchange } from './components/Exchange';
+import { ExchangeRate } from './components/ExchangeRate';
+import { Home } from './components/Home';
 import { setExchange } from './store';
 import { getExchange } from './store/selectors';
 

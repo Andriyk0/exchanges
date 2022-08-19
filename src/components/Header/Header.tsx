@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/tabindex-no-positive */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';

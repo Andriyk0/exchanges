@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getExchange } from '../../../store/selectors';
+import { getExchange } from '../../store/selectors';
 import './ExchangeRate.scss';
 
 export const ExchangeRate: React.FC = () => {

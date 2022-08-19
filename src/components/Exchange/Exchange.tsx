@@ -1,10 +1,7 @@
-/* eslint-disable no-else-return */
-/* eslint-disable consistent-return */
-/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import classnames from 'classnames';
-import { getExchange } from '../../../store/selectors';
+import { getExchange } from '../../store/selectors';
 import './Exchange.scss';
 
 export const Exchange: React.FC = () => {
@@ -16,15 +13,18 @@ export const Exchange: React.FC = () => {
 
   const value = (inputVal:string) => {
     const regExp = /^"{1}[0-9]+\s+(usd|eur|uah)+"{1}\s(in)\s"{1}(usd|eur|uah)"{1}$/;
+    let rezultArray:string[] = [];
 
-    if (regExp.test(inputVal)) {
+    if (!regExp.test(inputVal)) {
+      setActive(false);
+    } else if (regExp.test(inputVal)) {
       setActive(true);
       setError('');
 
-      return inputVal.split('"').join('').split(' ');
-    } else {
-      setActive(false);
+      rezultArray = inputVal.split('"').join('').split(' ');
     }
+
+    return rezultArray;
   };
 
   const exportMoney = () => {
@@ -53,7 +53,7 @@ export const Exchange: React.FC = () => {
 
   return (
     <div className="exchanges">
-      <p className="exchanges__title">Enter a value in the format "100 usd" in "uah"</p>
+      <p className="exchanges__title">Enter a value in the format &quot;100 usd&quot; in &quot;uah&quot;</p>
       <input
         className="exchanges__input input is-primary"
         type="text"
